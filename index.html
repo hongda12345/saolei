@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="index.js"></script>
+</head>
+<style>
+	*{
+    	margin: 0;
+    	padding: 0;
+    	list-style: none;
+    }
+	.scene{
+		width: 600px;
+		height: 600px;
+		background: #000;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+        margin-top: -300px;
+        margin-left: -300px;
+        border-top: 1px solid #000;
+        border-left: 1px solid #000;
+	}
+	.block{
+		width: 29px;
+		height: 29px;
+		background: hotpink;
+		margin-right:1px;
+		margin-bottom: 1px;
+		float: left;
+		transform: scale(1,1);
+		transition: all 0.8s;
+	}
+</style>
+<body>
+	<div class="scene"></div>
+	<script>
+	window.onload=function(){
+		let scene=document.querySelector('.scene');
+		for(let i=0;i<20;i++){
+			for(let j=0;j<20;j++){
+				scene.innerHTML+=`<div class='block'></div>`;
+			}
+		}
+        scene.onclick=function(e){
+        	let element=e.target;
+        	if(e){
+        		element.style.background='green';
+        		element.transform='scale(0.5,0.5)';
+        	}
+        }
+        scene.ondblclick=function(e){
+        	let element=e.target;
+        	if(e){
+        		element.style.background='blue';
+        	}
+        }
+        scene.onmouseover=function(e){
+        	let element=e.target;
+        	// if(e){
+        		element.style.background='purple';
+        	// }
+        }
+        scene.onmouseleave=function(e){
+        	let element=e.target;
+        	// if(e){
+        		element.style.background='hotpink';
+        	// }
+        }
+	}
+	</script>
+</body>
+</html>
